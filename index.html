@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css">
+	<title>this is a hole in a tree : whisper a secret</title>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>this is a hole in a tree</h1>
+		</div>
+	</div>
+	<div class="main">
+		<div class="container">
+			<form class="form" method="post">
+				<input type="hidden" name="form-name" value="form 1">
+				<input id="secret" type="text" placeholder="whisper a secret">
+				<button type="submit" class="btn">shhh...</button>
+			</form>
+			<ul class="secret">
+				<li>I drink carrot juice straight from the bottle.</li>
+				<li>I wouldn't mind living in the country.</li>
+				<li>I can't stand listening to the Beatles.</li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="second">
+			<h1 style="text-align: right">for you to leave your secrets</h1>
+		</div>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<p>design by <span style="color:#fff">[.jpg]</span> 2016 // inspiration by <span style="color:#fff">'in the mood for love'</span></p>
+
+		</div>
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js">
+	</script>
+	<script>
+		var main = function() {
+			$("form").submit(function() {
+				var comment = $("#secret").val();
+				if(comment !== "") {
+					var html = $("<li>").text(comment);
+					$(html).prependTo(".secret");
+					$("#secret").val("");
+				}
+				return false;
+			});
+		};
+
+		$(document).ready(main);
+	</script>
+</body>
+</html>
